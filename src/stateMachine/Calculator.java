@@ -1,9 +1,18 @@
 package stateMachine;
 
+import context.CalculationContext;
+
 public class Calculator {
 
+  CalculationContext cc;
+
   public Calculator() {
-    // TODO Auto-generated constructor stub
+    this.cc = new CalculationContext();
+  }
+
+  public void setState(char c) {
+    cc.setState(c);
+
   }
 
 }

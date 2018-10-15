@@ -1,15 +1,13 @@
 package state;
 
-public class ErrorState implements State {
+public class ErrorState implements CalculatorStateInterface {
 
   public ErrorState() {
     // TODO Auto-generated constructor stub
   }
 
-  @Override
-  public void calculate() {
-    // TODO Auto-generated method stub
-
+  public void getMessage() {
+    System.out.println("Invalid input.");
   }
 
 }

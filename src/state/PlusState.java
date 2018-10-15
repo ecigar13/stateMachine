@@ -1,13 +1,24 @@
 package state;
 
-public class PlusState implements State {
+public class PlusState implements OperatorStateInterface {
 
   public PlusState() {
-    // TODO Auto-generated constructor stub
   }
 
   @Override
-  public void calculate() {
+  public double calculate(double previousTotal, double numberInput) {
+    return previousTotal + numberInput;
+
+  }
+
+  @Override
+  public void getMessage() {
+    System.out.println("Plus state.");
+
+  }
+
+  @Override
+  public double insert(double a, double b) {
     // TODO Auto-generated method stub
 
   }

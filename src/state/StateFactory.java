@@ -1,23 +1,24 @@
 package state;
 
-import com.sun.org.apache.xpath.internal.operations.Plus;
+import state.CalculatorStateInterface;
 
 public class StateFactory {
-  String operators = "[-+*/]";  //regex for operator
+  String operators = "[-+*/=]"; // regex for operator
 
   public StateFactory() {
-    // TODO Auto-generated constructor stub
+
   }
 
   /**
    * Check if input is number, operator or other things.
+   * 
    * @param input
    * @return
    */
-  public State getState(char input) {
+  public CalculatorStateInterface getState(char input) {
     String temp = Character.toString(input);
     if (Character.isDigit(input)) {
-      return new DigitState();
+      return new SecondDigitState();
     } else if (temp.matches(operators)) {
       return getOperatorState(input);
     } else
@@ -26,10 +27,11 @@ public class StateFactory {
 
   /**
    * Check if input is an operator.
+   * 
    * @param input
    * @return
    */
-  public State getOperatorState(char input) {
+  public OperatorStateInterface getOperatorState(char input) {
     if (input == '+') {
       return new PlusState();
     } else if (input == '-') {
@@ -39,7 +41,9 @@ public class StateFactory {
       return new MultiplyState();
     } else if (input == '/') {
       return new DivideState();
-    } else
-      return new ErrorState();
+    } else if (input == '=') {
+      return new EqualState();
+    }
+    return new ErrorState();
   }
 }

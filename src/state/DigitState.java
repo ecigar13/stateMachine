@@ -1,15 +1,11 @@
 package state;
 
-public class DigitState implements State {
+public interface DigitState extends CalculatorStateInterface {
+  public double insert(double first, double second);
 
-  public DigitState() {
-    // TODO Auto-generated constructor stub
-  }
+  public int insert(int first, int second);
 
-  @Override
-  public void calculate() {
-    // TODO Auto-generated method stub
+  public double removeDigit(double first);
 
-  }
-
+  public int removeDigit(int first);
 }
