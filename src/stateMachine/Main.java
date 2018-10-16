@@ -8,15 +8,15 @@ public class Main {
     // setState c
     // change state
     Calculator calculator = new Calculator();
-    calculator.setState('9');
-    calculator.setState('+');
-    calculator.setState('1');
-    calculator.setState('0');
-    calculator.setState('+');
-    calculator.setState('1');
-    calculator.setState('0');
-    calculator.setState('-');
-    calculator.setState('2');
+    calculator.input('9');
+    calculator.input('+');
+    calculator.input('1');
+    calculator.input('0');
+    calculator.input('+');
+    calculator.input('1');
+    calculator.input('0');
+    calculator.input('-');
+    calculator.input('2');
 
   }
 
