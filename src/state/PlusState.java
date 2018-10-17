@@ -1,14 +1,23 @@
 package state;
 
-public class PlusState implements OperatorStateInterface {
+import stateMachine.Calculator;
+
+public final class PlusState implements OperatorStateInterface {
+  private static StateInterface obj;
 
   public PlusState() {
   }
 
-  @Override
-  public double calculate(double previousTotal, double numberInput) {
-    return previousTotal + numberInput;
-
+  /**
+   * Save the current state to previous state and assign new state.
+   * 
+   * @param c
+   * @param cal
+   */
+  public static void changeState(char c, Calculator cal) {
+    cal.calculate();
+    cal.setPreviousState(cal.getCurrentState());
+    cal.setCurrentState(PlusState.getInstance());
   }
 
   @Override
@@ -17,10 +26,11 @@ public class PlusState implements OperatorStateInterface {
 
   }
 
-  @Override
-  public double insert(double a, double b) {
-    // TODO Auto-generated method stub
-
+  public static StateInterface getInstance() {
+    if (obj == null) {
+      obj = new PlusState();
+    }
+    return obj;
   }
 
 }

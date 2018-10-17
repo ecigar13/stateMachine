@@ -1,21 +1,31 @@
 package state;
 
-public class EqualState implements OperatorStateInterface {
+import stateMachine.Calculator;
 
-  public EqualState() {
+public final class EqualState implements StateInterface {
+  private static StateInterface obj;
+
+  private EqualState() {
     // TODO Auto-generated constructor stub
-  }
-
-  @Override
-  public double calculate(double previousTotal, double numberInput) {
-    // TODO Auto-generated method stub
-    return 0;
   }
 
   @Override
   public void getMessage() {
     System.out.println("Equal state.");
 
+  }
+
+  public static void changeState(char c, Calculator cal) {
+    cal.calculate();
+    cal.setN(0);
+    cal.setCurrentState(EqualState.getInstance());
+  }
+
+  public static StateInterface getInstance() {
+    if (obj == null) {
+      obj = new EqualState();
+    }
+    return obj;
   }
 
 }

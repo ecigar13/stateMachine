@@ -1,3 +1,4 @@
+
 # stateMachine
 
 Calculator class:
@@ -8,20 +9,21 @@ Calculator class:
   
 Subclass the State class.
 Each state is a singleton.
+
 S0:
  - getInstance()
  - changeState(c, this)
    - if(c == 0-9)
-   - update(c)
-   - updateCurrentState(s1, s1.getInstance)
+	   - update(c)
+	   - updateCurrentState(s1, s1.getInstance)
    
 S1:
   - if(c == 0-9)
-  - updateCurrentState(s2, s2.getInstance)
+	  - updateCurrentState(s2, s2.getInstance)
   - if(+)
-  - update T
+	  - update T
   - if(-)
-  - do something.
+	  - do something.
   
 S2, S3...
    
@@ -29,3 +31,4 @@ Do calculation in the calculator object. Do state transition in state machine. S
 First, get input: input(c)
 Current state: getInstance()
 Change state: changeState(c, this)
+

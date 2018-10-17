@@ -1,6 +1,5 @@
 package state;
 
-public interface OperatorStateInterface extends CalculatorStateInterface {
+public interface OperatorStateInterface extends StateInterface {
 
-  public abstract double calculate(double previousTotal, double numberInput);
 }

@@ -2,17 +2,16 @@ package state;
 
 import stateMachine.Calculator;
 
-public class DigitSecondState implements StateInterface {
+public final class DigitSecondState implements StateInterface {
   private static StateInterface state;
 
   private DigitSecondState() {
-    // TODO Auto-generated constructor stub
   }
 
-  @Override
-  public void changeState(char c, Calculator calculator) {
-    // TODO Auto-generated method stub
-
+  public static void changeState(char c, Calculator cal) {
+    int t = Character.getNumericValue(c);
+    cal.setN(cal.getN() * 10 + t);
+    cal.setCurrentState(DigitSecondState.getInstance());
   }
 
   @Override
